@@ -4,8 +4,8 @@
   --bg: #ffffff;
   --ink: #111111;
   --line: #d8d8d8;
-  --top-logo-width: 18%;
-  --top-logo-width-mobile: 20%;
+  --top-logo-width: 36%;
+  --top-logo-width-mobile: 40%;
   --google-star: #fbbc04;
   --google-star-hover: #f9ab00;
 }
@@ -82,12 +82,12 @@ body.is-entry-locked {
   appearance: none;
   border: 0;
   background: transparent;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-size: 30px;
+  font-size: 15px;
   line-height: 1;
   cursor: pointer;
   outline: none;
