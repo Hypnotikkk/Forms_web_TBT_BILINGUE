@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magic Experience</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="is-entry-locked">
+    <main class="experience is-entry-locked" aria-live="polite">
+      <div class="top-logo-wrap">
+        <button type="button" class="top-logo" id="top-logo-repick" aria-label="Choose another card">
+          <img src="TBT_TOP_LOGO.png" alt="The Belgian Touch" />
+        </button>
+        <div class="language-switcher" id="language-switcher" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="fr" aria-label="Français" title="Français">🇫🇷</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English" title="English">🇬🇧</button>
+        </div>
+      </div>
+
+      <section class="scene" id="scene-insurance" aria-labelledby="insurance-title">
+        <div class="document">
+          <!--<p class="kicker">Magician's Insurance</p>-->
+          <div class="insurance-title-row">
+            <h1 id="insurance-title">Magician's Insurance</h1>
+            <span id="selected-card-dot" aria-hidden="true"></span>
+          </div>
+
+          <p class="contract-copy" id="insurance-copy-1">
+            By this document, it is certified that The Belgian Touch, a specialist in digital and immersive experiences, is covered under professional liability for any event occurring as part of its services and that may be perceived by third parties as improbable, unexplained, or technically impossible.
+          </p>
+
+          <p class="contract-copy" id="insurance-copy-2">
+            The coverage notably includes the appearance and disappearance of objects carried out within the contractual framework of performances. It also covers early reveals and predictions presented to the audience. Situations involving effects that influence temporal or sensory perception are also included, as well as significant collective reactions resulting from the performance.
+          </p>
+
+          <p class="contract-copy" id="insurance-copy-3">
+            Any situation considered "unrealistic" by a spectator will be deemed to fall within the artistic and scenographic framework of the performance and cannot constitute grounds for dispute based on material impossibility.
+          </p>
+
+          <p class="contract-copy" id="insurance-copy-4">
+            This contract is valid for any service provided by The Belgian Touch within a professional and contractual framework.
+          </p>
+
+          <p class="contract-meta" id="insurance-meta">
+            Effective date: Immediate<br />
+            Validity: For the full duration of the insured performances
+          </p>
+
+          <div id="insurance-overlay" aria-label="Card selection">
+            <button type="button" data-card="BC1.png" data-card-width="38%" data-card-height="38%" aria-label="Blue card"></button>
+            <button type="button" data-card="RC1.png" data-card-width="38%" data-card-height="38%" aria-label="Red card"></button>
+            <button type="button" data-card="CARDTBT1.png" data-card-width="70%" data-card-height="70%" aria-label="Brand card"></button>
+            <button type="button" data-card="BC1.png" data-card-width="38%" data-card-height="38%" data-card-rotate="90" aria-label="Signature card"></button>
+          </div>
+
+          <div class="signature-zone" aria-label="Signature area">
+            <p class="signature-label" id="signature-label">Signature</p>
+            <canvas id="signature-pad" aria-label="Sign here"></canvas>
+            <button type="button" id="signature-validate-btn" class="btn" disabled>Validate signature</button>
+          </div>
+
+          <div class="card-scene" aria-label="Selected card">
+            <div id="card-stage">
+              <img id="selected-card" src="BC1.png" alt="Selected card" draggable="false" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <section class="scene" id="scene-review" aria-labelledby="review-title">
+        <div class="review-scene">
+          <h2 id="review-title">Let us know what you think!</h2>
+          <p class="lead" id="review-lead">Your feedback matters. If you had a magical experience with The Belgian Touch, click 5 stars to share your thoughts.</p>
+
+          <div class="review-stars" id="review-stars" role="group" aria-label="Rating selection">
+            <button type="button" class="star-btn" data-rating="1" aria-label="1 star">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="star-btn" data-rating="2" aria-label="2 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="star-btn" data-rating="3" aria-label="3 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="star-btn" data-rating="4" aria-label="4 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="star-btn" data-rating="5" aria-label="5 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
