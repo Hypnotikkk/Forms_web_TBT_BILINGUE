@@ -39,12 +39,11 @@ body.is-entry-locked {
 }
 
 .top-logo-wrap {
-  position: relative;
+  position: static;
   width: var(--top-logo-width);
   max-width: 94vw;
   margin: 10px auto 12px;
   margin-top: 20px;
-  z-index: 90;
 }
 
 .top-logo {
@@ -61,8 +60,8 @@ body.is-entry-locked {
 }
 
 .language-switcher {
-  position: fixed;
-  top: 9px;
+  position: absolute;
+  top: 6px;
   right: 28px;
   left: auto;
   transform: none;
@@ -451,7 +450,7 @@ h2 {
   }
 
   .language-switcher {
-    top: 5px;
+    top: 3px;
     right: 18px;
     left: auto;
     transform: none;
