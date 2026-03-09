@@ -62,8 +62,8 @@ body.is-entry-locked {
 
 .language-switcher {
   position: fixed;
-  top: 16px;
-  right: 22px;
+  top: 12px;
+  right: 28px;
   left: auto;
   transform: none;
   display: inline-flex;
@@ -82,12 +82,12 @@ body.is-entry-locked {
   appearance: none;
   border: 0;
   background: transparent;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1;
   cursor: pointer;
   outline: none;
@@ -451,8 +451,8 @@ h2 {
   }
 
   .language-switcher {
-    top: 10px;
-    right: 14px;
+    top: 8px;
+    right: 18px;
     left: auto;
     transform: none;
   }
