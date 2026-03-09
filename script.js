@@ -7,7 +7,7 @@ const signatureValidateButton = document.getElementById("signature-validate-btn"
 const experienceRoot = document.querySelector(".experience");
 const topLogoRepick = document.getElementById("top-logo-repick");
 const languageSwitcher = document.getElementById("language-switcher");
-const languageButtons = Array.from(document.querySelectorAll(".lang-btn[data-lang]"));
+const languageToggleButton = document.getElementById("language-toggle-btn");
 
 const insuranceTitle = document.getElementById("insurance-title");
 const insuranceCopy1 = document.getElementById("insurance-copy-1");
@@ -36,10 +36,7 @@ const TRANSLATIONS = {
     pageTitle: "Magic Experience",
     topLogoAria: "Choose another card",
     languageSelectorAria: "Language selector",
-    languageButtons: {
-      fr: "French",
-      en: "English",
-    },
+    switchLanguageLabel: "French",
     insuranceTitle: "Magician's Insurance",
     contractCopy1:
       "By this document, it is certified that The Belgian Touch, a specialist in digital and immersive experiences, is covered under professional liability for any event occurring as part of its services and that may be perceived by third parties as improbable, unexplained, or technically impossible.",
@@ -69,10 +66,7 @@ const TRANSLATIONS = {
     pageTitle: "Expérience Magique",
     topLogoAria: "Rechoisir une carte",
     languageSelectorAria: "Sélecteur de langue",
-    languageButtons: {
-      fr: "Français",
-      en: "Anglais",
-    },
+    switchLanguageLabel: "Anglais",
     insuranceTitle: "Assurance de magicien",
     contractCopy1:
       "Par le présent document, il est certifié que The Belgian Touch, spécialiste des expériences digitales et immersives, est couvert au titre de sa responsabilité professionnelle pour tout événement survenant dans le cadre de ses prestations et pouvant être perçu comme improbable, inexpliqué ou techniquement impossible par des tiers.",
@@ -126,13 +120,13 @@ let cardDotColor = "";
 let currentLanguage = "en";
 const preloadedCardImages = [];
 
-function updateLanguageButtons() {
-  for (const button of languageButtons) {
-    const language = button.getAttribute("data-lang");
-    const isActive = language === currentLanguage;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  }
+function updateLanguageToggleButton(translation) {
+  if (!languageToggleButton) return;
+  const nextLanguage = currentLanguage === "fr" ? "en" : "fr";
+  languageToggleButton.setAttribute("data-next-lang", nextLanguage);
+  languageToggleButton.textContent = nextLanguage === "fr" ? "🇫🇷" : "🇬🇧";
+  languageToggleButton.setAttribute("aria-label", translation.switchLanguageLabel);
+  languageToggleButton.setAttribute("title", translation.switchLanguageLabel);
 }
 
 function getInitialLanguage() {
@@ -163,14 +157,7 @@ function setLanguage(language) {
   if (languageSwitcher) {
     languageSwitcher.setAttribute("aria-label", translation.languageSelectorAria);
   }
-
-  for (const button of languageButtons) {
-    const buttonLanguage = button.getAttribute("data-lang");
-    const buttonLabel = translation.languageButtons[buttonLanguage];
-    if (!buttonLabel) continue;
-    button.setAttribute("aria-label", buttonLabel);
-    button.setAttribute("title", buttonLabel);
-  }
+  updateLanguageToggleButton(translation);
 
   if (insuranceTitle) insuranceTitle.textContent = translation.insuranceTitle;
   if (insuranceCopy1) insuranceCopy1.textContent = translation.contractCopy1;
@@ -210,17 +197,15 @@ function setLanguage(language) {
     });
   }
 
-  updateLanguageButtons();
-
   try {
     window.localStorage.setItem(LOCAL_STORAGE_LANGUAGE_KEY, language);
   } catch {}
 }
 
 function onLanguageSwitcherClick(event) {
-  const button = event.target.closest(".lang-btn[data-lang]");
+  const button = event.target.closest("#language-toggle-btn");
   if (!button) return;
-  const language = button.getAttribute("data-lang");
+  const language = button.getAttribute("data-next-lang");
   if (!language) return;
   setLanguage(language);
 }
