@@ -62,7 +62,7 @@ body.is-entry-locked {
 
 .language-switcher {
   position: fixed;
-  top: 12px;
+  top: 9px;
   right: 28px;
   left: auto;
   transform: none;
@@ -451,7 +451,7 @@ h2 {
   }
 
   .language-switcher {
-    top: 8px;
+    top: 5px;
     right: 18px;
     left: auto;
     transform: none;
