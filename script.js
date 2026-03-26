@@ -26,8 +26,8 @@ const reviewStars = document.getElementById("review-stars");
 const OVERLAY_REOPEN_GUARD_MS = 1200;
 const CARD_ASSETS = ["BC1.png", "RC1.png", "CARDTBT1.png"];
 const REVIEW_URL_BY_LANGUAGE = {
-  en: "https://www.google.com/search?q=The+Belgian+Touch+Reviews",
-  fr: "https://www.google.com/search?q=The+Belgian+Touch+Avis",
+  en: "https://www.instagram.com/thebelgiantouch/",
+  fr: "https://www.instagram.com/thebelgiantouch/",
 };
 const LOCAL_STORAGE_LANGUAGE_KEY = "wc1_language";
 
